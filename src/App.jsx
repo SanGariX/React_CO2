@@ -4,40 +4,54 @@ import Background from "./Components/Background/Background";
 import Header from "./Components/Header/Header";
 import Hero from "./Components/Hero/Hero";
 import Main from "./Components/Main/Main";
-import randomWater from "./Helpers/randomWater";
-import randomPPM from "./Helpers/randomPPM";
-import randomTemperature from "./Helpers/randomTemperature";
+import getTime from "./Helpers/GetTime";
+import random from "./Helpers/random";
 
 function App() {
+  const MainObject = random();
   const [history, setHistory] = useState([]);
-  const [temperature, setTemperature] = useState(randomTemperature());
-  const [Water, setWater] = useState(randomWater());
-  const [PPM, setPPM] = useState(randomPPM());
+  const [temperature, setTemperature] = useState(MainObject.temperature);
+  const [Water, setWater] = useState(MainObject.water);
+  const [PPM, setPPM] = useState(MainObject.PPM);
+  const [header, setHeader] = useState({
+    graph: false,
+    monitoring: true,
+    history: false,
+  });
   useEffect(() => {
     const interval = setInterval(() => {
-      setTemperature(randomTemperature());
-      setWater(randomWater());
-      setPPM(randomPPM());
-    }, 5000);
+      const object = random();
+      setTemperature(object.temperature);
+      setWater(object.water);
+      setPPM(object.PPM);
+    }, 7000);
   }, []);
   useEffect(() => {
     setHistory([
       ...history,
       {
         temperature: temperature,
-        Water: Water,
+        water: Water,
         PPM: PPM,
+        time: getTime(),
       },
     ]);
   }, [temperature, Water, PPM]);
+
   return (
     <div className="wrapper">
       <div className="top_wrapper">
-        <Header />
-        <Hero temperature={temperature} Water={Water} PPM={PPM}/>
+        <Header setHeader={setHeader} />
+        <Hero temperature={temperature} Water={Water} PPM={PPM} />
         <Background />
       </div>
-      <Main temperature={temperature} Water={Water} PPM={PPM} />
+      <Main
+        history={history}
+        header={header}
+        temperature={temperature}
+        Water={Water}
+        PPM={PPM}
+      />
       {/*  Contaminated Critical */}
     </div>
   );
