@@ -34,7 +34,7 @@ const Monitoring = () => {
               src={image3}
               alt="temperature"
             />
-            <p className="monitoring_inner_item_number">1000 ppm</p>
+            <p className="monitoring_inner_item_number">500 ppm</p>
           </div>
           <p className="monitoring_inner_item_state">Normal</p>
         </div>
