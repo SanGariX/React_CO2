@@ -1,0 +1,178 @@
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.top_wrapper {
+  height: 50vh;
+  /* зелений */
+  background: linear-gradient(
+    135deg,
+    #9de8ad 0%,
+    #7cd3c9 44%,
+    #7cd3c9 100%,
+    #398235 100%
+  );
+  /* красний */
+  /* background: linear-gradient(135deg,  #f2825b 0%,#e55b2b 50%,#f07146 100%);   */
+  /* оранжевий */
+  /* background: linear-gradient(135deg,  #f9c667 0%,#f79621 100%); */
+  position: relative;
+  overflow: hidden;
+}
+.wave {
+  position: absolute;
+  bottom: -3px;
+  @media screen and (max-width: 760px) {
+    max-height: 50px;
+    width: 160% !important;
+  }
+  @media screen and (max-width: 400px) {
+    max-height: 20px;
+  }
+}
+.wave1 {
+  right: -1200px;
+  animation: wave1 25s linear infinite;
+  opacity: 90%;
+}
+@keyframes wave1 {
+  0% {
+    right: 100%;
+  }
+  25% {
+    right: 50%;
+  }
+  50% {
+    right: 0%;
+  }
+  75% {
+    right: 25%;
+  }
+  100% {
+    right: 100%;
+  }
+}
+.wave3 {
+  left: 0;
+  animation: wave3 20s linear infinite;
+  opacity: 60%;
+}
+@keyframes wave3 {
+  0% {
+    left: 20%;
+  }
+  25% {
+    left: 10%;
+  }
+  50% {
+    left: 30%;
+  }
+  75% {
+    left: 0%;
+  }
+  100% {
+    left: 50%;
+  }
+}
+.wave2 {
+  width: 70%;
+  left: 600px;
+  animation: wave2 20s linear infinite;
+  opacity: 80%;
+}
+@keyframes wave2 {
+  0% {
+    left: 60%;
+  }
+  25% {
+    left: 20%;
+  }
+  50% {
+    left: 70%;
+  }
+  75% {
+    left: 20%;
+  }
+  100% {
+    left: 60%;
+  }
+}
+/* header */
+.header_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+.title_name {
+  font-size: 30px;
+  color: antiquewhite;
+}
+.header_inner_item img {
+  width: 40px;
+}
+.header_inner {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.state_title {
+  font-family: "Poppins" sans-serif;
+  font-size: 70px;
+  text-align: center;
+  margin-top: 30px;
+  color: aliceblue;
+}
+.state_title.normal {
+  color: #3fa23a;
+}
+.state_title.orange {
+  color: orange;
+}
+.state_title.red {
+  color: red;
+}
+.state_desc {
+  display: block;
+  font-family: "Poppins" sans-serif;
+  font-size: 40px;
+  text-align: center;
+  width: 100%;
+  margin-top: 20px;
+  color: beige;
+}
+.monitoring_inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.monitoring_inner_item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 50px;
+  border-bottom: 1px solid black;
+  padding: 30px;
+}
+.monitoring_inner_item_inner {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.monitoring_inner_item_image {
+  width: 50px;
+}
+.monitoring_inner_item_number {
+  font-family: "Poppins" sans-serif;
+  font-size: 30px;
+}
+.monitoring_inner_item_state{
+  font-family: "Poppins" sans-serif;
+  font-size: 30px;
+  color: green;
+}
