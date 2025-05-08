@@ -6,6 +6,21 @@
 .top_wrapper {
   height: 50vh;
   /* зелений */
+
+  /* красний */
+  /*    */
+  /* оранжевий */
+  /*  */
+  position: relative;
+  overflow: hidden;
+}
+.hero_container {
+  padding-top: 70px;
+}
+.hero{
+  height: 100%;
+}
+.hero.green {
   background: linear-gradient(
     135deg,
     #9de8ad 0%,
@@ -13,12 +28,12 @@
     #7cd3c9 100%,
     #398235 100%
   );
-  /* красний */
-  /* background: linear-gradient(135deg,  #f2825b 0%,#e55b2b 50%,#f07146 100%);   */
-  /* оранжевий */
-  /* background: linear-gradient(135deg,  #f9c667 0%,#f79621 100%); */
-  position: relative;
-  overflow: hidden;
+}
+.hero.orange {
+  background: linear-gradient(135deg, #f2825b 0%, #e55b2b 50%, #f07146 100%);
+}
+.hero.red {
+  background: linear-gradient(135deg, #f9c667 0%, #f79621 100%);
 }
 .wave {
   position: absolute;
@@ -98,12 +113,17 @@
     left: 60%;
   }
 }
+.header{
+  position: fixed;
+  inset: 0 0 auto 0;
+}
 /* header */
 .header_container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
+
 }
 .title_name {
   font-size: 30px;
@@ -118,13 +138,12 @@
   gap: 30px;
 }
 .state_title {
-  font-family: "Poppins" sans-serif;
+  font-family: "Poppins";
   font-size: 70px;
   text-align: center;
-  margin-top: 30px;
   color: aliceblue;
 }
-.state_title.normal {
+.state_title.green {
   color: #3fa23a;
 }
 .state_title.orange {
@@ -135,12 +154,22 @@
 }
 .state_desc {
   display: block;
-  font-family: "Poppins" sans-serif;
+  font-family: "Poppins";
   font-size: 40px;
   text-align: center;
   width: 100%;
   margin-top: 20px;
   color: beige;
+  padding: 0 20px;
+}
+.state_desc.green {
+  color: #3fa23a;
+}
+.state_desc.orange {
+  color: orange;
+}
+.state_desc.red {
+  color: red;
 }
 .monitoring_inner {
   display: flex;
@@ -168,11 +197,36 @@
   width: 50px;
 }
 .monitoring_inner_item_number {
-  font-family: "Poppins" sans-serif;
+  font-family: "Poppins";
   font-size: 30px;
 }
-.monitoring_inner_item_state{
-  font-family: "Poppins" sans-serif;
+.monitoring_inner_item_state {
+  font-family: "Poppins";
   font-size: 30px;
+}
+.monitoring_inner_item_state.green {
   color: green;
+}
+.monitoring_inner_item_state.orange {
+  color: orange;
+}
+.monitoring_inner_item_state.red {
+  color: red;
+}
+@media screen and (max-width: 400px) {
+  .monitoring_inner_item_number {
+    font-size: 20px;
+  }
+  .monitoring_inner_item_state {
+    font-size: 20px;
+  }
+  .monitoring_inner_item_image {
+    width: 30px;
+  }
+  .header_inner_item img {
+    width: 30px;
+  }
+  .header_inner {
+    gap: 20px;
+  }
 }

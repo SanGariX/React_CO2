@@ -1,49 +1,43 @@
+import { useEffect, useState } from "react";
 import "./App.css";
+import Background from "./Components/Background/Background";
 import Header from "./Components/Header/Header";
 import Hero from "./Components/Hero/Hero";
 import Main from "./Components/Main/Main";
+import randomWater from "./Helpers/randomWater";
+import randomPPM from "./Helpers/randomPPM";
+import randomTemperature from "./Helpers/randomTemperature";
 
 function App() {
+  const [history, setHistory] = useState([]);
+  const [temperature, setTemperature] = useState(randomTemperature());
+  const [Water, setWater] = useState(randomWater());
+  const [PPM, setPPM] = useState(randomPPM());
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTemperature(randomTemperature());
+      setWater(randomWater());
+      setPPM(randomPPM());
+    }, 5000);
+  }, []);
+  useEffect(() => {
+    setHistory([
+      ...history,
+      {
+        temperature: temperature,
+        Water: Water,
+        PPM: PPM,
+      },
+    ]);
+  }, [temperature, Water, PPM]);
   return (
     <div className="wrapper">
       <div className="top_wrapper">
         <Header />
-        <Hero />
-        <svg
-        className="wave wave1"
-          xmlns="http://www.w3.org/2000/svg"
-          width="100%"
-          height="70px"
-          viewBox="0 0 1000 100"
-          preserveAspectRatio="none"
-          fill="white"
-        >
-          <path d="M0,100h1000l0,0c0,0-136.938,0-224,0c-193,0-170.235-1.256-278-35C399,34,395,0,249,0C118,0,0,100,0,100L0,100z" />
-        </svg>
-        <svg
-        className="wave wave2"
-          xmlns="http://www.w3.org/2000/svg"
-          width="100%"
-          height="70px"
-          viewBox="0 0 1000 100"
-          preserveAspectRatio="none"
-          fill="white"
-        >
-          <path d="M0,100h1000l0,0c0,0-136.938,0-224,0c-193,0-170.235-1.256-278-35C399,34,395,0,249,0C118,0,0,100,0,100L0,100z" />
-        </svg>
-        <svg
-        className="wave wave3"
-          xmlns="http://www.w3.org/2000/svg"
-          width="100%"
-          height="70px"
-          viewBox="0 0 1000 100"
-          preserveAspectRatio="none"
-          fill="white"
-        >
-          <path d="M0,100h1000l0,0c0,0-136.938,0-224,0c-193,0-170.235-1.256-278-35C399,34,395,0,249,0C118,0,0,100,0,100L0,100z" />
-        </svg>
+        <Hero temperature={temperature} Water={Water} PPM={PPM}/>
+        <Background />
       </div>
-      <Main />
+      <Main temperature={temperature} Water={Water} PPM={PPM} />
       {/*  Contaminated Critical */}
     </div>
   );

@@ -1,10 +1,11 @@
 import Monitoring from "../Monitoring/Monitoring";
 
-const Main = () => {
+const Main = ({temperature, Water, PPM}) => {
+
   return (
     <main className="main">
       <div className="container main_container">
-        <Monitoring/>
+        <Monitoring temperature={temperature} Water={Water} PPM={PPM} />
       </div>
     </main>
   );
