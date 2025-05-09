@@ -2,12 +2,12 @@ import image1 from "../../assets/clear.png";
 import image2 from "../../assets/temperature.png";
 import image3 from "../../assets/water.png";
 const History = ({ history: historyTemp }) => {
-  const history = [...historyTemp].reverse();
+  let history = [...historyTemp].reverse();
   return (
     <div className="container history_container">
       <div className="history_flexbox">
         <div className="history_inner">
-          {history.map(({ PPM, temperature, water, time }, idx) => (
+          {history.splice(0, 34).map(({ PPM, temperature, water, time }, idx) => (
             <div key={idx} className="history_inner_main">
               <div className="history_inner_item">
                 <div className="history_inner_item_inner">

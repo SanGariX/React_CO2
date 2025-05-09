@@ -24,7 +24,7 @@ function App() {
       setTemperature(object.temperature);
       setWater(object.water);
       setPPM(object.PPM);
-    }, 7000);
+    }, 5000);
   }, []);
   useEffect(() => {
     setHistory([
