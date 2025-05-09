@@ -10,11 +10,19 @@ import {
 } from "recharts";
 
 const Graph = ({ history }) => {
+  const result = [...history].reverse().filter((_, index) => {
+    if(index > 34){
+      return false
+    }else{
+      return true
+    }
+  })
+  if(history)
   return (
     <div className="graph_wrapper">
       <h2 className="graph_wrapper_title">Температура</h2>
       <ResponsiveContainer width={"100%"} height={400}>
-        <LineChart data={history}>
+        <LineChart data={result}>
           <CartesianGrid stroke="black" />
           <XAxis dataKey="time" />
           <YAxis />
